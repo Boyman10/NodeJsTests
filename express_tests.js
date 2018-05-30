@@ -15,6 +15,9 @@ app.get('/', function(req, res) {
         res.setHeader('Content-Type', 'text/plain');
         res.send('Welcome there in room 1!');
     })
+    .get('/stage/:num/room', function(req, res) {
+        res.render('room.ejs', {stage: req.params.num});
+    })
     .use(function(req, res, next){
         res.setHeader('Content-Type', 'text/plain');
         res.status(404).send('404 error !');
